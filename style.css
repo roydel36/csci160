@@ -1,0 +1,542 @@
+:root {
+  --bg-0: #000000;
+  --bg-1: #030503;
+  --bg-2: #070b07;
+
+  --ink-1: #ffffff;
+  --ink-2: #ffffff;
+  --ink-3: #ffffff;
+
+  --accent: #00ff41;
+  --accent-bright: #5fff85;
+  --accent-soft: rgba(0, 255, 65, 0.10);
+  --accent-line: rgba(0, 255, 65, 0.25);
+  --card-bg: rgba(0, 255, 65, 0.03);
+  --card-border: rgba(0, 255, 65, 0.18);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--ink-1);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(0, 255, 65, 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 40%, rgba(0, 255, 65, 0.05), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0) 70%);
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 40px 80px;
+  position: relative;
+}
+
+.hero {
+  text-align: center;
+  padding: 32px 20px 24px;
+}
+
+.hero h1 {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 4.2vw, 2.5rem);
+  letter-spacing: -0.02em;
+  color: var(--accent-bright);
+  margin: 0 0 12px;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.hero .subtitle {
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: bolder;
+  letter-spacing: 0.01em;
+}
+
+.hero .subtitle .sep {
+  color: var(--ink-3);
+  margin: 0 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--ink-3);
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab svg { width: 18px; height: 18px; }
+
+.tab,
+.tab:link,
+.tab:visited,
+.tab:hover,
+.tab:active,
+.tab:focus {
+  text-decoration: none;
+}
+
+.tab:hover { color: var(--ink-2); }
+
+.tab.active {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent);
+}
+
+.panel {
+  padding-top: 40px;
+  animation: fade 0.35s ease both;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 1.45rem;
+  margin: 0 0 18px;
+  color: var(--ink-1);
+  letter-spacing: -0.01em;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 140px 20px;
+  color: var(--ink-3);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+
+.welcome {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0 0 56px;
+}
+
+.welcome strong {
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.section { margin-bottom: 56px; }
+
+.section:last-child { margin-bottom: 0; }
+
+.info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+}
+
+.info-card .section-title { margin-bottom: 22px; }
+
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.info-list .label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.info-list .value {
+  color: var(--ink-1);
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.info-list a {
+  color: var(--accent-bright);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-line);
+  transition: color 0.2s ease;
+}
+
+.info-list a:hover { color: var(--accent); }
+
+.prose {
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+
+.prose strong {
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.course-code {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent-bright);
+  letter-spacing: 0.06em;
+}
+
+.resource-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resource-list li {
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.resource-list .res-title {
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.resource-list a {
+  color: var(--accent-bright);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-line);
+  transition: color 0.2s ease;
+  word-break: break-word;
+}
+
+.resource-list a:hover { color: var(--accent); }
+
+.resource-list .res-url {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.88rem;
+}
+
+.calendar-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.calendar-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 560px;
+}
+
+.calendar thead th {
+  background: rgba(0, 255, 65, 0.08);
+  color: var(--accent-bright);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: left;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--accent-line);
+  letter-spacing: 0.01em;
+}
+
+.calendar tbody td {
+  padding: 13px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--ink-2);
+  vertical-align: top;
+}
+
+.calendar tbody tr:last-child td { border-bottom: none; }
+
+.calendar tbody tr:hover td {
+  background: rgba(0, 255, 65, 0.025);
+}
+
+.calendar td.date-cell {
+  font-weight: 600;
+  color: var(--ink-1);
+  white-space: nowrap;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.calendar td.highlight {
+  color: var(--accent-bright);
+  font-weight: 700;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  letter-spacing: 0.01em;
+}
+
+.calendar td.no-class {
+  color: var(--ink-3);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.homework-table-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 28px rgba(0, 255, 65, 0.08);
+}
+
+.homework-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.98rem;
+}
+
+.homework-table thead th {
+  background: rgba(0, 255, 65, 0.08);
+  color: var(--accent-bright);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-weight: 700;
+  text-align: left;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--accent-line);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.homework-table tbody td {
+  height: 58px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--ink-2);
+  vertical-align: middle;
+}
+
+.homework-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.homework-table th:first-child,
+.homework-table td:first-child {
+  border-right: 1px solid rgba(0, 255, 65, 0.14);
+}
+
+.homework-table tbody tr:hover td {
+  background: rgba(0, 255, 65, 0.025);
+}
+
+.pdf-viewer-wrap {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  min-height: 900px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 28px rgba(0, 255, 65, 0.08);
+}
+
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #101510;
+}
+
+.pdf-fallback {
+  margin: 0;
+  padding: 28px;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 20px 16px 60px;
+  }
+
+  .hero {
+    padding: 16px 8px 16px;
+  }
+
+  .hero .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero .subtitle .sep {
+    margin: 0 6px;
+  }
+
+  .tabs {
+    margin-top: 16px;
+    justify-content: flex-start;
+    padding: 0 4px;
+  }
+
+  .tab {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+  }
+
+  .tab svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .panel {
+    padding-top: 28px;
+  }
+
+  .placeholder {
+    padding: 80px 20px;
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+  }
+
+  .section {
+    margin-bottom: 44px;
+  }
+
+  .welcome {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .pdf-viewer-wrap {
+    min-height: 720px;
+  }
+
+  .homework-table {
+    font-size: 0.9rem;
+  }
+
+  .homework-table thead th,
+  .homework-table tbody td {
+    padding: 12px 14px;
+  }
+
+  .homework-table tbody td {
+    height: 52px;
+  }
+
+  .info-card {
+    padding: 22px 20px;
+  }
+
+  .info-list .value {
+    font-size: 0.98rem;
+  }
+
+  .prose {
+    font-size: 0.98rem;
+  }
+
+  .course-code {
+    font-size: 1.05rem;
+  }
+
+  .resource-list li {
+    font-size: 0.98rem;
+  }
+
+  .resource-list .res-url {
+    font-size: 0.82rem;
+  }
+
+  .calendar {
+    font-size: 0.88rem;
+  }
+
+  .calendar thead th {
+    padding: 11px 14px;
+    font-size: 0.88rem;
+  }
+
+  .calendar tbody td {
+    padding: 11px 14px;
+  }
+
+  .calendar td.date-cell {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .tab {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+
+  .tab svg {
+    width: 15px;
+    height: 15px;
+  }
+}
