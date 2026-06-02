@@ -386,6 +386,14 @@ body {
   background: rgba(0, 255, 65, 0.025);
 }
 
+.homework-table a {
+  color: var(--ink-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.homework-table a:hover { color: var(--accent); }
+
 .pdf-viewer-wrap {
   width: 100%;
   aspect-ratio: 8.5 / 11;
