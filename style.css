@@ -338,6 +338,14 @@ body {
   font-style: italic;
 }
 
+.calendar a {
+  color: var(--ink-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.calendar a:hover { color: var(--accent); }
+
 .homework-table-wrap {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
